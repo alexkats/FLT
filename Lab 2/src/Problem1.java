@@ -97,6 +97,11 @@ public class Problem1 {
             g2[a][c] = b;
         }
 
+        if (n1 != n2 || m1 != m2 || k1 != k2) {
+            out.println("NO");
+            return;
+        }
+
         used = new boolean[Math.max(n1, n2) + 1];
 
         if (check(1, 1)) {

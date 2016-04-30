@@ -1,0 +1,67 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s _ -> ac _ <
+s 1 -> ss 1 >
+s 2 -> ss 2 >
+ss 0 -> ss 0 <
+ss 1 -> ss 1 <
+ss 2 -> ss 2 <
+ss _ -> maybe_end _ >
+maybe_end _ -> end _ <
+end _ -> to_begin _ <
+maybe_end 0 -> do 0 ^
+maybe_end 1 -> do 1 ^
+maybe_end 2 -> do 2 ^
+to_begin 0 -> to_begin 0 <
+to_begin 1 -> to_begin 1 <
+to_begin 2 -> to_begin 2 <
+to_begin _ -> do _ >
+do 0 -> do 0 >
+do 1 -> have1 1 >
+do 2 -> have0 2 >
+do _ -> all _ <
+all 0 -> all _ <
+all 1 -> all _ <
+all 2 -> all _ <
+all _ -> finish _ <
+finish 0 -> finish 0 <
+finish 1 -> finish 1 <
+finish 2 -> finish 2 <
+finish _ -> ac _ >
+have0 0 -> have0 0 >
+have0 1 -> have1 1 >
+have0 2 -> have0 2 >
+have0 _ -> go0 _ <
+go0 0 -> go0 0 <
+go0 1 -> go0 1 <
+go0 2 -> go0 2 <
+go0 _ -> write0 _ <
+write0 0 -> write0 0 <
+write0 1 -> write0 1 <
+write0 _ -> go 0 >
+go 0 -> go 0 >
+go 1 -> go 1 >
+go _ -> div _ >
+div 0 -> div 0 >
+div 1 -> div_carry 0 >
+div 2 -> div 1 >
+div _ -> ss _ <
+div_carry 0 -> div_carry 1 >
+div_carry 1 -> div 2 >
+div_carry 2 -> div_carry 2 >
+div_carry _ -> ss _ <
+have1 0 -> have1 0 >
+have1 1 -> have0 1 >
+have1 2 -> have1 2 >
+have1 _ -> go1 _ <
+go1 0 -> go1 0 <
+go1 1 -> go1 1 <
+go1 2 -> go1 2 <
+go1 _ -> write1 _ <
+write1 0 -> write1 0 <
+write1 1 -> write1 1 <
+write1 _ -> go 1 >
+

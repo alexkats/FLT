@@ -1,0 +1,17 @@
+1
+s 0 -> have0 _ >
+s 1 -> have1 _ >
+have0 _ -> ac 0 ^
+have1 _ -> ac 1 ^
+have0 0 -> have00 _ >
+have0 1 -> have01 _ >
+have1 0 -> have10 _ >
+have1 1 -> have11 _ >
+have00 o -> have0 _ >
+have01 o -> have1 _ >
+have10 o -> have1 _ >
+have11 o -> have1 _ >
+have00 a -> have0 _ >
+have01 a -> have0 _ >
+have10 a -> have0 _ >
+have11 a -> have1 _ >

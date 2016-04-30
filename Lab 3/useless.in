@@ -1,0 +1,9 @@
+8 S
+S -> AB
+S -> C
+A -> a
+B -> b
+T -> c
+R -> Q
+Q -> R
+A -> R

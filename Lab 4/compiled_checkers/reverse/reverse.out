@@ -1,0 +1,25 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 >
+s _ -> maybe_copy 2 <
+maybe_copy 2 -> maybe_copy 2 <
+maybe_copy 0 -> take0 2 >
+maybe_copy 1 -> take1 2 >
+maybe_copy _ -> all _ >
+all 2 -> all _ >
+all 0 -> ac 0 ^
+all 1 -> ac 1 ^
+take0 2 -> take0 2 >
+take1 2 -> take1 2 >
+take0 0 -> take0 0 >
+take1 0 -> take1 0 >
+take0 1 -> take0 1 >
+take1 1 -> take1 1 >
+take0 _ -> next 0 <
+take1 _ -> next 1 <
+next 0 -> next 0 <
+next 1 -> next 1 <
+next 2 -> maybe_copy 2 <
